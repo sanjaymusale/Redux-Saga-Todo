@@ -2,9 +2,12 @@ const todoReducer = (state = [], action) => {
   switch (action.type) {
     case "ADD_TODO":
       return [].concat(state).concat(action.todo);
+
     case "REMOVE_TODO":
-      state.splice(action.id, 1);
-      return [].concat(state);
+      return state.filter(task => {
+        return task.id !== action.id;
+      });
+
     case "TASK_COMPLETE_TODO":
       return state.map(task => {
         if (task.id === action.data.id) {

@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { deleteTodo, completeTodo, completeAll } from "../redux/actions/todo";
 
 class ListTodo extends React.Component {
-  handleRemove = i => {
-    this.props.dispatch(deleteTodo(i));
+  handleRemove = id => {
+    this.props.dispatch(deleteTodo(id));
   };
 
   handleComplete = e => {
@@ -26,8 +26,12 @@ class ListTodo extends React.Component {
       <>
         {this.props.todos.length !== 0 && (
           <div className="todoCheckBox">
-            <input type="checkbox" onChange={this.handleCompleteAll} />
-            <span>Mark all as Complete</span>
+            <input
+              type="checkbox"
+              id="markall"
+              onChange={this.handleCompleteAll}
+            />
+            <label for="markall">Mark all as Complete</label>
           </div>
         )}
         <div className="todos">
@@ -52,6 +56,16 @@ class ListTodo extends React.Component {
                   <span className={todo.complete ? "complete" : ""}>
                     {todo.title}
                   </span>
+                  <img
+                    src={`${process.env.PUBLIC_URL}/close.png`}
+                    width="20px"
+                    height="20px"
+                    alt="dsdfsd"
+                    className="removeTodo"
+                    onClick={() => {
+                      this.handleRemove(todo.id);
+                    }}
+                  />
                 </li>
               );
             })}

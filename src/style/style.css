@@ -70,7 +70,7 @@ body {
   border-radius: 8px;
 }
 
-.todoCheckBox span {
+.todoCheckBox label {
   font-size: 12px;
 }
 
@@ -97,5 +97,9 @@ body {
 .todos .complete {
   text-decoration: line-through;
   color: gray;
+}
+
+.todos .removeTodo {
+  float: right;
 }
 /*# sourceMappingURL=style.css.map */

@@ -50,7 +50,7 @@ body {
   }
 }
 .todoCheckBox {
-  span {
+  label {
     font-size: 12px;
   }
 }
@@ -75,5 +75,8 @@ body {
   .complete {
     text-decoration: line-through;
     color: gray;
+  }
+  .removeTodo {
+    float: right;
   }
 }
