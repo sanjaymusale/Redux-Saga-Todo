@@ -1,0 +1,79 @@
+body {
+  background-color: #eeeeee;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todoBox {
+  width: 35%;
+  // padding: 15x;
+  padding: 15px;
+  background-color: white;
+
+  header {
+    text-align: center;
+    span {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      padding: 0 0 10px 0;
+    }
+  }
+}
+
+.todos {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.todoInput {
+  display: flex;
+  input {
+    padding: 10px 10px 10px 10px;
+    border: 1px solid black;
+    flex: 1;
+    font-size: 18px;
+  }
+
+  button {
+    height: 30px;
+    width: 100px;
+    font-size: 14px;
+    font-variant-caps: all-petite-caps;
+    background-color: lightseagreen;
+    border: none;
+    border-radius: 8px;
+  }
+}
+.todoCheckBox {
+  span {
+    font-size: 12px;
+  }
+}
+
+.todos {
+  ul {
+    list-style: none;
+    width: 100%;
+    padding: 0px 0px 0px 0px;
+  }
+  li {
+    font-size: 24px;
+    border-bottom: 1px solid #cccccc;
+    padding: 15px 0px 10px 0px;
+  }
+  span {
+    margin-left: 10px;
+  }
+  li:last-child {
+    border-bottom: none;
+  }
+  .complete {
+    text-decoration: line-through;
+    color: gray;
+  }
+}
