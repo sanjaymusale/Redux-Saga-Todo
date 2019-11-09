@@ -39,33 +39,35 @@ class ListTodo extends React.Component {
             {this.props.todos.map((todo, i) => {
               return (
                 <li key={i + 1}>
-                  {todo.complete ? (
-                    <input
-                      type="checkbox"
-                      onChange={this.handleComplete}
-                      value={todo.id}
-                      checked="checked"
+                  <div className="todo-list">
+                    {todo.complete ? (
+                      <input
+                        type="checkbox"
+                        onChange={this.handleComplete}
+                        value={todo.id}
+                        checked="checked"
+                      />
+                    ) : (
+                        <input
+                          type="checkbox"
+                          onChange={this.handleComplete}
+                          value={todo.id}
+                        />
+                      )}
+                    <div className={`content ${todo.complete ? "complete" : ""}`}>
+                      {todo.title}
+                    </div>
+                    <img
+                      src={`${process.env.PUBLIC_URL}/close.png`}
+                      width="20px"
+                      height="20px"
+                      alt="dsdfsd"
+                      className="removeTodo"
+                      onClick={() => {
+                        this.handleRemove(todo.id);
+                      }}
                     />
-                  ) : (
-                    <input
-                      type="checkbox"
-                      onChange={this.handleComplete}
-                      value={todo.id}
-                    />
-                  )}
-                  <span className={todo.complete ? "complete" : ""}>
-                    {todo.title}
-                  </span>
-                  <img
-                    src={`${process.env.PUBLIC_URL}/close.png`}
-                    width="20px"
-                    height="20px"
-                    alt="dsdfsd"
-                    className="removeTodo"
-                    onClick={() => {
-                      this.handleRemove(todo.id);
-                    }}
-                  />
+                  </div>
                 </li>
               );
             })}
